@@ -1,0 +1,57 @@
+:root {
+    --accent-color: #361F47;
+    --lighting-color: #EEEBF3;
+    --accent-text-color: white;
+    --lighting-text-color: black;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Rubik', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+.accent-background {
+    background-color: var(--accent-color);
+    color: var(--accent-text-color);
+}
+
+.lighting-background {
+    background-color: var(--lighting-color);
+    color: var(--lighting-text-color);
+}
+
+a.raw {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.raw:visited {
+    color: inherit;
+}
+
+a.raw:hover {
+    text-decoration: none;
+}
+
+ul.classic {
+    list-style-type: "- ";
+}
+
+ul:not(.classic) {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+b {
+    font-size: 1.25em;
+}

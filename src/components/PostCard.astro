@@ -1,0 +1,40 @@
+---
+const { props } = Astro.props;
+---
+
+<a class="raw" href={"/posts/" + props.file}>
+    <article>
+        <time class="accent-background" datetime={props.postDate}>{props.postDate}</time>
+        <img src={props.imageSrc}>
+        <h2>{props.title}</h2>
+    </article>
+</a>
+
+<style>
+
+    article {
+        position: relative;
+        border-bottom: 2px solid var(--accent-color);
+        text-align: center;
+    }
+
+    time {
+        position: absolute;
+        top: -.75rem;
+        right: -.75rem;
+        padding-inline: .75rem;
+        padding-block: .5rem;
+        background-color: hsla(274, 56%, 27%, .8) !important;
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    h2 {
+        margin-top: .33rem;
+        font-size: 1rem;
+    }
+</style>
+

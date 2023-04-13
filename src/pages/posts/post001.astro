@@ -1,0 +1,253 @@
+---
+import PostLayout from "../../layouts/PostLayout.astro";
+import * as props from "./post001.json";
+---
+
+<PostLayout postProps={props}>
+    <h3>Avant-Propos</h3>
+    <p>
+        Alors voilà, vous avez récemment découvert le Mahjong Riichi, au détour d'une initiation au cours d'un festival de jeu ? Ou par un manga comme Akagi, Ten ou Saki ? Ou encore via des amis ? <br>
+        Bref, vous avez été intrigué par vos premières parties, et je vous comprends. La sensation de rejouabilité infinie, le plaisir de combiner les tuiles et de former des mains, la joie de gagner des parties quand bien même vous n'êtes encore qu'un néophyte grâce aux facéties du hasard... Et désormais vous n'avez qu'une envie : parvenir à réaliser un des extrêmement rares Yakuman ! 🔥🔥🔥 <br>
+        Seulement par chez nous, il n'est pas banal de rencontrer des joueurs de Riichi qui accepteront de passer une soirée à pousser des tuiles autour d'un junk mat... <br>
+        Heureusement, nous sommes en 2023, et il existe bon nombre d'applications en ligne pour jouer au Riichi ! Parmi elles, Mahjong Soul est l'une des plus populaires, aussi bien au Japon qu'en occident. On peut regretter son thème très - trop - moe moe, mais l'interface de jeu est impeccable. Les tuiles sont claires, les traductions sont très bonnes, les informations en jeu sont faciles à repérer, les replays sont aisément accessibles et disposent d'options pratiques, on accède à des statistiques sur nos performances. Bien évidemment, c'est gratuit (pour qui souhaite simplement jouer sans se soucier du merchandising). En résumé, c'est un plaisir d'utilisation, et cet article n'est même pas sponsorisé ! 😢
+    </p>
+    <p>
+        Vous avez peut-être déjà jouer plusieurs parties, mais vous trouvez que vos performances ne sont pas à la hauteur de vos espérances et vous souhaitez jouer mieux, gagner plus, et grimper dans les rangs de Mahjong Soul afin de pouvoir affirmer au monde que vous êtes Celestial !
+    </p>
+    <p>
+        Cette série d'articles est là pour vous aider ! 🤗 <br>
+        Elle se destine donc aux joueurs néophytes qui utilisent Mahjong Soul et qui cherchent à améliorer leur jeu, ou aux joueurs intermédiaires souhaitant renforcer leurs fondamentaux.
+    </p>
+
+    <h3>Le Ranking sur Mahjong Soul</h3>
+    <p>
+        Avant de comprendre comment progresser sur Mahjong Soul, assurons-nous dans un premier temps de bien comprendre les règles qui définissent la progression. 🧐 <br/>
+        Sur Mahjong Soul, vous disposez de deux rangs distincts, un pour le Yonma (4 joueurs) et un pour le Sanma (3 joueurs). Dans la suite de cet article, je ne m'intéresserai qu'au Yonma, le Sanma fonctionnant sur les mêmes principes à quelques constantes près dans les calculs.
+        <br/><br/>
+        Les rangs sont les suivants :
+    </p>
+    <ul class="classic">
+        <li>Rang 1 : Novice</li>
+        <li>Rang 2 : Adept</li>
+        <li>Rang 3 : Expert</li>
+        <li>Rang 4 : Master</li>
+        <li>Rang 5 : Celestial</li>
+    </ul>
+    <p>
+        Chaque rang est lui-même constitué de trois niveaux : Novice-1, Novice-2, Novice-3; Adept-1, Adept-2, Adept-3 etc.
+        <br/>
+        Enfin, chaque niveau possède un seuil de point de rang.
+    </p>
+    <p>
+        En jouant, vous accumulez ou perdez des points de rang en fonction de vos résultats, et deux cas de figure peuvent se produire :
+    </p>
+    <ul class="classic">
+        <li>📈 Votre nombre de points de rang atteint ou dépasse le seuil de votre niveau : dans ce cas, félicitations, vous passez au niveau suivant ! Si vous êtiez au niveau 3, vous passez donc au niveau 1 du rang suivant !<br/></li>
+        <li>📉 Votre nombre de points de rang devient négatif : dommage, c'est la rétrogradation, vous repassez au niveau précédent. Si vous êtiez au niveau 1, vous passez donc au niveau 3 du rang précédent.</li>
+    </ul>
+    <p>
+        Tant que vous êtes Novice, vous ne pouvez pas être rétrogradé, car le jeu vous empêche d'obtenir un nombre de points de rang négatif. <br>
+        À partir du rang Adept, lorsqu'un changement de niveau s'effectue, vous commencerez toujours dans votre nouveau niveau avec un nombre de points de rang égal à la moitié du seuil de ce niveau (bin oui, sinon, à la première perte de points après votre promotion, ce serait la rétrogradation, et ce serait cruel ! 😈). <br>
+        En fonction de votre rang, vous avez accès à certaines salles de jeu, ce qui permet de rassembler les joueurs de niveau similaire. Les accès aux salles sont définis de la façon suivante :
+    </p>
+    <ul class="classic">
+        <li>Bronze Room : Novice & Adept</li>
+        <li>Silver Room : Adept & Expert</li>
+        <li>Gold Room   : Expert & Master</li>
+        <li>Jade Room   : Master & Saint</li>
+        <li>Throne Room : Saint & Celestial</li>
+    </ul>
+    <p>
+        Un nouveau joueur commence par le premier rang au premier niveau : Novice-1. Il doit donc progresser en gagnant des points de rang autant que faire se peut. <br><br>
+        Mais comment gagner des points de rang précisément ? 🤔<br><br>
+        Pour gagner des points de rang, il faut bien entendu jouer des parties en "ranked" et finir en bonne position. <br>
+        La quantité de points de rang que vous gagnez en fin de partie dépend en fait de plusieurs facteurs et découle d'un calcul plutôt obscure. <br><br>
+        Je vais détailler tout ça pour vous 😊 👨‍🏫
+    </p>
+    <img src="/gallery/post001-001.png">
+    <p>
+        Dans un premier temps, le jeu calcule votre <i>score de fin</i> en fonction de votre position et du nombre de points que vous avez à la fin de la partie. <br>
+        La formule est la suivante :
+    </p>
+    <pre>
+        <i>score de fin</i> = (<i>Nombre de points à la fin de la partie</i> - <i>Nombre de points en début de partie</i>) / 1000 + <b>uma</b>
+    </pre>
+    <p>
+        Il s'agit tout bêtement du votre différentiel de point à la fin de la partie divisé par mille, auquel s'ajoute l'uma. <br/>
+        L'Uma est un modificateur bonus/malus qui récompense les bonnes performances (1ère et 2ème place) et pénalise les mauvaises (3ème et 4ème). C'est une composante classique des tournois de Riichi. <br>
+        Sur Mahjong Soul, les uma sont définis de la façon suivante :
+    </p>
+    <ul class="classic">
+        <li>1ère place : +15</li>
+        <li>2ème place : +5</li>
+        <li>3ème place : -5</li>
+        <li>4ème place : -15</li>
+    </ul>
+    <p>
+        Ensuite, le nombre de points de rang gagnés ou perdus est calculé en fonction de ce score de fin :
+    </p>
+    <pre>
+        <i>Points de rang</i> = <i>score de fin</i> + <i>delta rang</i>, arrondi à l'entier supérieur
+    </pre>
+    <p>
+        <i>delta rang</i>, quant à lui, est défini en fonction de votre position à la fin de la partie, du niveau la salle de jeu, et du type de partie (avec ou sans les manches du Sud) :
+    </p>
+    <table>
+        <theah>
+            <tr>
+                <th></th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+        </theah>
+        <tbody>
+            <tr>
+                <td>Bronze Room</td>
+                <td>+20</td>
+                <td>+10</td>
+                <td>+0</td>
+                <td>penalty</td>
+            </tr>
+            <tr>
+                <td>Silver Room</td>
+                <td>+40</td>
+                <td>+20</td>
+                <td>+0</td>
+                <td>penalty</td>
+            </tr>
+            <tr>
+                <td>Gold Room</td>
+                <td>+80</td>
+                <td>+40</td>
+                <td>+0</td>
+                <td>penalty</td>
+            </tr>
+            <tr>
+                <td>Jade Room</td>
+                <td>+110</td>
+                <td>+55</td>
+                <td>+0</td>
+                <td>penalty</td>
+            </tr>
+            <tr>
+                <td>Throne Room</td>
+                <td>+120</td>
+                <td>+60</td>
+                <td>+0</td>
+                <td>penalty</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        Pour les parties sans les manches du Sud, ces valeurs sont divisées par 2. <br>
+        Pour finir la valeur <i>penalty</i> dépend de votre rang actuel, de la façon suivante :
+    </p>
+    <ul class="classic">
+        <li>Novice : 0</li>
+        <li>Adept-1 : -20</li>
+        <li>Adept-2 : -40</li>
+        <li>Adept-3 : -60</li>
+        <li>Expert-1 : -80</li>
+        <li>Expert-2 : -100</li>
+        <li>Expert-3 : -120</li>
+        <li>Master-1 : -165</li>
+        <li>Master-2 : -180</li>
+        <li>Master-3 : -195</li>
+        <li>Saint-1 : -210</li>
+        <li>Saint-2 : -225</li>
+        <li>Saint-3 : -240</li>
+        <li>Celestial : c'est encore plus compliqué, alors je ne vais pas vous bassiner avec ça ici ! (De toute façon c'est pas comme si vous en étiez proche 😋)</li>
+    </ul>
+    <p>
+        J'espère que vous avez bien suivi, car il va falloir apprendre tout ce qui précède par coeur, c'est fondamental pour bien progresser !!
+        <br><br>
+        ...
+        <br><br>
+        Ok, c'est une blague. 🤭
+        <br><br>
+        Voyons plutôt ce que ça donne par quelques exemples :
+    </p>
+    <pre>
+<b>Rang Novice-1, Bronze Room, avec manches du Sud, position 2, score de fin 28 100</b>
+Uma = +5
+<i>score de fin</i> = (28 100 - 25 000) / 1000 + 5 = 8.1
+<i>points de rang</i> = 8.1 + 10 = 18.1, arrondi à 19
+
+<b>Rang Adept-2, Silver Room, avec manches du Sud, position 4, score de fin 11 000</b>
+Uma = -15
+Penalty = -40
+<i>score de fin</i> = (11 000 - 25 000) / 1000 - 15 = -29
+<i>points de rang</i> = -29 - 40 = -69
+
+<b>Rang Expert-1, Gold Room, avec manches du Sud, position 1, score de fin 35 000</b>
+Uma = +15
+<i>score de fin</i> = (35 000 - 25 000) / 1000 + 15 = 25
+<i>points de rang</i> = 25 + 80 = 105
+    </pre>
+    <p>
+        Ce qu'on constate, c'est que les écarts de point de rang vont s'accroître au fur et à mesure de votre progression.<br><br>
+        Étudions ce qu'il se passe sur une table en Throne Room avec manches du Sud et avec 4 joueurs Saint-3 :
+    </p>
+    <pre>
+<b>1er: 31 000</b>
+Uma = +15
+<i>score de fin</i> = (31 000 - 25 000) / 1000 + 15 = 21
+<i>points de rang</i> = 21 + 120 = 141
+
+<b>2ème: 27 000</b>
+Uma = +5
+<i>score de fin</i> = (27 000 - 25 000) / 1000 + 5 = 7
+<i>points de rang</i> = 7 + 60 = 67
+
+<b>3ème: 23 000</b>
+Uma = -5
+<i>score de fin</i> = (23 000 - 25 000) / 1000 - 5 = -7
+<i>points de rang</i> = -7 + 0 = -7
+
+<b>4ème: 19 000</b>
+Uma = -15
+Penalty = -240
+<i>score de fin</i> = (19 000 - 25 000) / 1000 - 15 = -21
+<i>points de rang</i> = -21 - 240 = -261
+    </pre>
+    <p>
+        Alors que constate-t-on cette fois-ci ? <br>
+        Déjà, le plus évident : on passe de -7 pour le 3ème à ... -261 pour le dernier ?!! C'est cataclysmique !! 🤯<br>
+        Fait intéressant, la 3ème place est quasiment indolore en termes de ranking, et ce quelle que soit la salle ou votre rang. <br>
+        On voit également que la 2ème place est plutôt confortable, on y gagne un nombre non-négligeable de point de rang. <br>
+        Enfin, la première place est évidemment la plus enviable, mais on voit clairement qu'en valeur absolue, elle n'est pas aussi bien récompensée que la dernière place est pénalisée.
+    </p>
+    <p> On touche du doigt la finalité de ce premier article. 😮 <br>
+        Ce qu'il faut retenir, c'est qu'en réalité le calcul des points de rang sur Mahjong Soul est <b>EXTRÊMEMENT</b> pénalisant pour le dernier joueur, surtout à partir du rang Master-1 où les pénalités s'envolent. <br>
+        Les autres places sont soit quasiment neutres, soit positives.
+    </p>
+    <p>
+        La conclusion à tirer de cette analyse est en définitive très simple : <br>
+        Pour progresser, vous ne devez pas chercher à gagner, mais plutôt à <b>ne pas perdre</b>.
+    </p>
+    <p>
+        En réalité, cette maxime ne vaut pas que sur Mahjong Soul car la simple application des uma, sans même avoir de système de pénalité supplémentaire, est déjà assez rédhibitoire pour la dernière place. Néanmoins c'est encore bien plus vrai sur Mahjong Soul et cela doit avoir des conséquences sur la façon de jouer de celui qui souhaite progresser dans le ranking ! <br>
+        Bien évidemment, il y a des nuances à y apporter, mais c'est une base solide pour les joueurs débutants.
+    </p>
+    <p>
+        Dans la suite des articles de cette série, nous essaierons donc de comprendre comment atteindre cet objectif : <b>NE PAS PERDRE</b>.
+    </p>
+</PostLayout>
+
+<style>
+    h3 + p {
+        text-indent: 1.75rem;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    td, th {
+        padding-inline: 1rem;
+        text-align: center;
+    }
+</style>

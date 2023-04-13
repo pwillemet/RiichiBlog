@@ -1,15 +1,31 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+const allPosts = await Astro.glob('../pages/posts/*.json');
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Mahjong Riichi | pwillemet</title>
-	</head>
-	<body>
-		<h1>Mahjong Riichi</h1>
-	</body>
-</html>
+<BaseLayout>
+  <main>
+    <ul>
+      {allPosts.map(p => <li><PostCard props={p} /></li>)}
+    </ul>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    margin-block: 2rem;
+    margin-inline: 5rem;
+  }
+
+  ul {
+    flex-wrap: wrap;
+    gap: 5rem !important;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  li {
+    flex: 0 0 300px;
+  }
+</style>

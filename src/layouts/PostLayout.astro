@@ -1,0 +1,50 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { postProps } = Astro.props;
+---
+
+<BaseLayout>
+    <section>
+        <img src={postProps.imageSrc} />
+        <h2>{postProps.title}</h2>
+        <div class="content">
+            <slot/>
+            <ul>
+                {postProps.tags.map(t => <li class="accent-background">{t}</li>)}
+            </ul>
+        </div>
+        <p>Pierric Willemet | {postProps.postDate}</p>
+    </section>
+</BaseLayout>
+
+<style>
+    section {
+        max-width: 80%;
+        margin-top: 1.5rem;
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .content {
+        border-block: 2px solid var(--accent-color);
+        padding-block: .33rem;
+        line-height: 200%;
+        text-align: justify;
+    }
+
+    li {
+        padding-block: 0;
+        padding-inline: 1rem;
+        font-size: .75rem;
+    }
+
+    p {
+        color: var(--accent-color);
+        font-weight: bold;
+        text-align: right;
+    }
+</style>

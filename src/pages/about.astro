@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+    <div class="content">
+        <img src="/gallery/photo.png" />
+        <div>
+            <p>Bonjour à vous !</p>
+            <p>Moi c'est Pierric Willemet, père de famille de 3 enfants et passioné de jeux de société, d'énigmes ludiques, et de Mahjong !</p>
+            <p>Le Mahjong, je suis tombé dedans par hasard, et je dois en remercier mon sympathique beau-frère qui aura été le premier à me faire découvrir cet univers.</p>
+            <p>J’ai découvert le Mahjong et le Riichi grâce à BMJ, club de Rennes fondé par Angélo Maolet qui est depuis devenu un ami proche et grâce à qui j’ai pu non seulement enrichir mon jeu, mais aussi et surtout rencontrer des personnes formidables et approfondir l’aspect humain, communautaire et associatif qui entoure la pratique du Mahjong en France !</p>
+            <p>C'était il y a plus de 10 ans, et depuis je suis toujours un avide joueur de Mahjong, essentiellement de Riichi.</p>
+            <p>Actuellement papa de 3 jeunes enfants, je ne suis malheureusement que peu actif sur la scène associative et compétitive, et je joue principalement en ligne sur Mahjong Soul.
+                Mais il me tient à coeur de partager mon expérience de jeu et mes ressentis, et j’espère bientôt pouvoir me réinvestir plus avant dans la scène française ! (Qui sait, peut-être monter un club dans ma ville de résidence ?!)</p>
+            <p>Vous pouvez me retrouver sur les serveurs Discord de la Fédération Française de Mahjong - FFMJ, de la communauté francophone de Mahjong et du club BMJ.</p>
+            <p>A bientôt !</p>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .content {
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+        margin-inline: auto;
+        margin-block: 3rem;
+        max-width: 80%;
+        line-height: 125%;
+    }
+
+    img {
+        width: 287px;
+        flex-shrink: 0;
+        aspect-ratio: 1;
+    }
+</style>
