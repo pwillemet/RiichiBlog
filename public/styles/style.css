@@ -55,3 +55,9 @@ ul:not(.classic) {
 b {
     font-size: 1.25em;
 }
+
+@media (max-width: 450px) {
+    .min-medium {
+        display: none;
+    }
+}

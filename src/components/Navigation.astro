@@ -2,18 +2,17 @@
 
 ---
 <nav class="accent-background">
-    <a class="raw" href="/"><i class="fa-solid fa-home"></i></a>
-    <h1>Mahjong - P.Willemet</h1>
-    <a class="raw" href="/about/"><i class="fa-solid fa-user"/></a>
-    <a class="raw" href="https://ludosphere.fr/@pwillemet/"><i class="fa-brands fa-mastodon"/></a>
-    <a class="raw" href="https://www.twitch.tv/kwoinkwoin"><i class="fa-brands fa-twitch"/></a>
-    <a class="raw" href="mailto:pierric.willemet@gmai.com"><i class="fa-solid fa-envelope"/></a>
+    <a class="raw min-medium" href="/" title="accueil"><i class="fa-solid fa-home"></i></a>
+    <a class="raw" href="/" title="accueil"><h1>Mahjong - P.Willemet</h1></a>
+    <a class="raw" href="/about/" title="à propos"><i class="fa-solid fa-user"/></a>
+    <a class="raw" href="https://ludosphere.fr/@pwillemet/" title="Mastodon"><i class="fa-brands fa-mastodon"/></a>
+    <a class="raw" href="https://www.twitch.tv/kwoinkwoin" title="Twitch"><i class="fa-brands fa-twitch"/></a>
+    <a class="raw" href="mailto:pierric.willemet@gmai.com" title="Mail"><i class="fa-solid fa-envelope"/></a>
 </nav>
 
 <style>
     nav {
         height: 89px;
-        background-color: #361F7;
         display: flex;
         align-items: center;
         padding-inline: 3rem;
@@ -24,8 +23,22 @@
         font-size: 1.5rem;
     }
 
-    h1 {
-        font-size: 2rem;
+    a:nth-child(2) {
         margin-right: auto;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    @media (hover: hover) {
+
+        i {
+            transition: scale linear 200ms;
+        }
+
+        i:hover {
+            scale: 1.2;
+        }
     }
 </style>
