@@ -7,7 +7,9 @@ const allPosts = await Astro.glob('../pages/posts/*.json');
 <BaseLayout>
   <main>
     <ul>
-      {allPosts.map(p => <li><PostCard props={p} /></li>)}
+      {allPosts
+          .filter(p => !p.draft)
+          .map(p => <li><PostCard props={p} /></li>)}
     </ul>
   </main>
 </BaseLayout>
