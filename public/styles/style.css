@@ -56,6 +56,33 @@ b {
     font-size: 1.25em;
 }
 
+blockquote {
+    border: 2px solid var(--accent-color);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: .5rem 1rem;
+    width: fit-content;
+    -webkit-box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.59);
+    box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.59);
+}
+
+.tile {
+    font-style: normal;
+    font-size: 2rem;
+}
+
+.public-voice {
+    border: 2px solid darkred;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: .5rem 1rem;
+    width: fit-content;
+    -webkit-box-shadow: 2px 2px 4px 2px rgba(139,0,0,0.59);
+    box-shadow: 2px 2px 4px 2px rgba(139,0,0,0.59);
+    background-color: snow;
+}
+
 @media (max-width: 450px) {
     .min-medium {
         display: none;
