@@ -21,7 +21,7 @@ import * as props from "./post001.json";
 
     <h3>Le Ranking sur Mahjong Soul</h3>
     <p>
-        Avant de comprendre comment progresser sur Mahjong Soul, assurons-nous dans un premier temps de bien comprendre les règles qui définissent la progression. 🧐 <br/>
+        Avant de voir comment progresser sur Mahjong Soul, assurons-nous dans un premier temps de bien comprendre les règles qui définissent la progression. 🧐 <br/>
         Sur Mahjong Soul, vous disposez de deux rangs distincts, un pour le Yonma (4 joueurs) et un pour le Sanma (3 joueurs). Dans la suite de cet article, je ne m'intéresserai qu'au Yonma, le Sanma fonctionnant sur les mêmes principes à quelques constantes près dans les calculs.
         <br/><br/>
         Les rangs sont les suivants :
@@ -43,8 +43,8 @@ import * as props from "./post001.json";
         En jouant, vous accumulez ou perdez des points de rang en fonction de vos résultats, et deux cas de figure peuvent se produire :
     </p>
     <ul class="classic">
-        <li>📈 Votre nombre de points de rang atteint ou dépasse le seuil de votre niveau : dans ce cas, félicitations, vous passez au niveau suivant ! Si vous étiez au niveau 3, vous passez donc au niveau 1 du rang suivant !<br/></li>
-        <li>📉 Votre nombre de points de rang devient négatif : dommage, c'est la rétrogradation, vous repassez au niveau précédent. Si vous étiez au niveau 1, vous passez donc au niveau 3 du rang précédent.</li>
+        <li>📈 Votre nombre de points de rang atteint ou dépasse le seuil de votre niveau : félicitations, vous passez au niveau suivant ! Si vous étiez au niveau 3, vous passez donc au niveau 1 du rang suivant.<br/></li>
+        <li>📉 Votre nombre de points de rang devient négatif : dommage, c'est la rétrogradation, vous repassez au niveau précédent. Si vous étiez au niveau 1, vous revenez donc au niveau 3 du rang précédent.</li>
     </ul>
     <p>
         Tant que vous êtes Novice, vous ne pouvez pas être rétrogradé, car le jeu vous empêche d'obtenir un nombre de points de rang négatif. <br>
@@ -74,7 +74,7 @@ import * as props from "./post001.json";
         <i>score de fin</i> = (<i>Nombre de points à la fin de la partie</i> - <i>Nombre de points en début de partie</i>) / 1000 + <b>uma</b>
     </pre>
     <p>
-        Il s'agit tout bêtement du votre différentiel de point à la fin de la partie divisé par mille, auquel s'ajoute l'uma. <br/>
+        Il s'agit tout bêtement de votre différentiel de points à la fin de la partie divisé par mille, auquel s'ajoute l'uma. <br/>
         L'Uma est un modificateur bonus/malus qui récompense les bonnes performances (1ère et 2ème place) et pénalise les mauvaises (3ème et 4ème). C'est une composante classique des tournois de Riichi. <br>
         Sur Mahjong Soul, les uma sont définis de la façon suivante :
     </p>
@@ -217,10 +217,11 @@ Penalty = -240
         Alors que constate-t-on cette fois-ci ? <br>
         Déjà, le plus évident : on passe de -7 pour le 3ème à ... -261 pour le dernier ?!! C'est cataclysmique !! 🤯<br>
         Fait intéressant, la 3ème place est quasiment indolore en termes de ranking, et ce quelle que soit la salle ou votre rang. <br>
-        On voit également que la 2ème place est plutôt confortable, on y gagne un nombre non-négligeable de point de rang. <br>
+        On voit également que la 2ème place est plutôt confortable, on y gagne un nombre non-négligeable de points de rang. <br>
         Enfin, la première place est évidemment la plus enviable, mais on voit clairement qu'en valeur absolue, elle n'est pas aussi bien récompensée que la dernière place est pénalisée.
     </p>
-    <p> On touche du doigt la finalité de ce premier article. 😮 <br>
+    <p>
+        On touche du doigt la finalité de ce premier article. 😮 <br>
         Ce qu'il faut retenir, c'est qu'en réalité le calcul des points de rang sur Mahjong Soul est <b>EXTRÊMEMENT</b> pénalisant pour le dernier joueur, surtout à partir du rang Master-1 où les pénalités s'envolent. <br>
         Les autres places sont soit quasiment neutres, soit positives.
     </p>
