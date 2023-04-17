@@ -9,6 +9,7 @@ const allPosts = await Astro.glob('../pages/posts/*.json');
     <ul>
       {allPosts
           .filter(p => !p.draft)
+          .reverse()
           .map(p => <li><PostCard props={p} /></li>)}
     </ul>
   </main>
